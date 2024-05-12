@@ -28,8 +28,7 @@ bookConstructor.prototype.toggleRead = function(){
 
 let myLib = []
 
-
-form.addEventListener('submit',(e)=>{
+function submit(e){
     e.preventDefault();
     const data = new FormData(e.target);
     const book = new bookConstructor(
@@ -41,9 +40,73 @@ form.addEventListener('submit',(e)=>{
     e.target.reset();
     myLib.push(book);
     console.log(myLib);
+    display();
     dialog.close();
-})
+
+}
+
+form.addEventListener('submit',submit);
+
+
+function createAppend(name,tag,text,parent){
+    const element = document.createElement(tag);
+    if(textcontent){
+        element.textContent = text
+    }
+
+}
+
+
 
 function display(){
-    
+
+    for (book of myLib){
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('book');
+        libraryDisplay.appendChild(bookDiv);
+
+        const details = document.createElement('div');
+        bookDiv.appendChild(details);
+
+        const titleP = document.createElement('p');
+        titleP.textContent='Title:';
+        details.appendChild(titleP);
+
+        const titleValue = document.createElement('p');
+        titleValue.textContent= book.title;
+        details.appendChild(titleValue);
+        
+        const authorP = document.createElement('p');
+        authorP.textContent='Author:';
+        details.appendChild(authorP);
+
+        const authorValue = document.createElement('p');
+        authorValue.textContent = book.author;
+        details.appendChild(authorValue);
+        
+        const pagesP = document.createElement('p');
+        pagesP.textContent='Pages:';
+        details.appendChild(pagesP);
+
+        const pagesValue = document.createElement('p');
+        pagesValue.textContent= book.pages;
+        details.appendChild(pagesValue);
+        
+        const status = document.createElement('div');
+        bookDiv.appendChild(status);
+
+        const read = document.createElement('label');
+        read.textContent = 'Read:';        
+        status.appendChild(read);      
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = book.read;
+        read.appendChild(checkbox);
+
+        const remove = document.createElement('button')
+        remove.textContent = 'Remove';
+        remove.classList.add('remove');
+        status.appendChild(remove);    
+    }     
 }
