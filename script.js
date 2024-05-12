@@ -47,20 +47,19 @@ function submit(e){
 
 form.addEventListener('submit',submit);
 
+const purge = document.querySelectorAll('');
 
-function createAppend(name,tag,text,parent){
-    const element = document.createElement(tag);
-    if(textcontent){
-        element.textContent = text
-    }
 
-}
+
+
+
+
 
 
 
 function display(){
 
-    for (book of myLib){
+    for ([index,book] of myLib.entries()){
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book');
         libraryDisplay.appendChild(bookDiv);
@@ -101,12 +100,30 @@ function display(){
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
+        checkbox.dataset.index = index;
+        checkbox.addEventListener('change', toggleRead);
         checkbox.checked = book.read;
         read.appendChild(checkbox);
 
         const remove = document.createElement('button')
         remove.textContent = 'Remove';
+        remove.dataset.index = index;
+        remove.addEventListener('click',removeBook);        
         remove.classList.add('remove');
         status.appendChild(remove);    
     }     
+}
+
+function toggleRead(event) {
+    const index = event.target.dataset.index;
+    myLib[index].toggleRead();
+}
+
+function removeBook(event) {
+    
+    const index = event.target.dataset.index;
+    console.log(index);
+    myLib.splice(index,1);
+    display();
+    
 }
