@@ -7,14 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <dialog>
+        <form>
+            <fieldset>
+                <legend>Enter Book Details</legend>
+                <div>
+                    <label for="title">
+                        Title
+                    </label>
+                    <input type="text" name="title" id="title" required>
+                    <label for="author">
+                        Author
+                    </label>
+                    <input type="text" name="author" id="author" required>
+                    <label for="pages">
+                        No. of Pages
+                    </label>
+                    <input type="text" name="pages" id="pages" required>
+                    <label for="read">
+                        Read
+                    </label>
+                    <input type="checkbox" name="read" id="read" required>
+                    <button type='submit' id="cancel">Cancel</button>
+                    <button>Confirm</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
     <div>
         <p>Welcome User!!</p>
-        <button>add a book</button>
+        <button id="addBook">add a book</button>
+        
         <div id="books">
 
         </div>
     </div>
-
-    
+    <script src="script.js"></script>    
 </body>
 </html>
