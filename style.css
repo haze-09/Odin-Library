@@ -40,7 +40,6 @@ dialog{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    /* height: 40vh; */
 }
 
 fieldset{
@@ -63,8 +62,33 @@ fieldset>div{
 
 
 
-#books{
+#lib{
     background-color: whitesmoke;
     width: 50vw;
     border-radius: 15px;
+    padding: 30px;
+}
+
+.book{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.book>:nth-child(1){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    align-items: center;   
+}
+
+.book>:nth-child(1)>:nth-child(odd){
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.book>:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }

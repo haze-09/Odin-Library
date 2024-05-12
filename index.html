@@ -23,13 +23,14 @@
                     <label for="pages">
                         No. of Pages
                     </label>
-                    <input type="text" name="pages" id="pages" required>
+                    <input type="number" name="pages" id="pages" required>
                     <label for="read">
                         Read
                     </label>
-                    <input type="checkbox" name="read" id="read" required>
+                    <input type="checkbox" name="read" id="read">
+
                     <button type='submit' id="cancel">Cancel</button>
-                    <button>Confirm</button>
+                    <button type="submit" id="confirm">Confirm</button>
                 </div>
             </fieldset>
         </form>
@@ -38,8 +39,26 @@
         <p>Welcome User!!</p>
         <button id="addBook">add a book</button>
         
-        <div id="books">
-
+        <div id="lib">
+            <div class="book">
+                <div>
+                    <p>Title:</p>
+                    <p>Harry Potter</p>
+                
+                    <p>Author:</p>
+                    <p>J K Rowling</p>
+                
+                    <p>pages:</p>
+                    <p>520</p>
+                </div>
+                <div>
+                    <div>
+                        Read
+                        <input type="checkbox" name="read" checked>
+                    </div>
+                    <button>Remove</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>    
