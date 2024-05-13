@@ -3,6 +3,7 @@ const dialog = document.querySelector('dialog');
 const cancel = document.querySelector('#cancel');
 const conf = document.querySelector('#confirm');
 const form = document.querySelector('form');
+/** @type {HTMLDivElement} */
 const libraryDisplay = document.querySelector('#lib');
 
 addBook.addEventListener('click',()=>{
@@ -28,8 +29,18 @@ bookConstructor.prototype.toggleRead = function(){
 
 let myLib = []
 
+libraryDisplay.style.justifyContent='center';
+libraryDisplay.style.alignItems='center';
+
 function submit(e){
     e.preventDefault();
+
+    libraryDisplay.style.justifyContent='';
+    libraryDisplay.style.alignItems='';
+
+    
+
+
     const data = new FormData(e.target);
     const book = new bookConstructor(
         data.get('title'),
@@ -47,17 +58,24 @@ function submit(e){
 
 form.addEventListener('submit',submit);
 
-const purge = document.querySelectorAll('');
-
-
-
-
-
-
-
 
 
 function display(){
+    libraryDisplay.innerHTML='';
+
+    if(myLib.length===0){
+        libraryDisplay.style.justifyContent='center';
+        libraryDisplay.style.alignItems='center';
+        
+        const nothing = document.createElement('p');
+        nothing.textContent = 'Nothing Here Yet.';
+        libraryDisplay.appendChild(nothing);
+
+        const addaBook = document.createElement('p');
+        addaBook.textContent = 'Add a book';
+        libraryDisplay.appendChild(addaBook);
+    };
+
 
     for ([index,book] of myLib.entries()){
         const bookDiv = document.createElement('div');
