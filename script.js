@@ -16,15 +16,28 @@ cancel.addEventListener('click',(e)=>{
     dialog.close();
 })
 
-function bookConstructor(title,author,pages,read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+class books{
+    #read;
 
-bookConstructor.prototype.toggleRead = function(){
-    this.read=!this.read;    
+    constructor(title,author,pages,read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    toggleRead(){
+        this.#read=!this.#read;    
+    }
+
+
+    set read(value){
+        this.#read = value === 'on';
+    }
+
+    get read(){
+        return this.#read;
+    }
 }
 
 let myLib = []
@@ -42,11 +55,11 @@ function submit(e){
 
 
     const data = new FormData(e.target);
-    const book = new bookConstructor(
+    const book = new books(
         data.get('title'),
         data.get('author'),
         data.get('pages'),
-        data.get('read') === 'on'
+        data.get('read')
     );
     e.target.reset();
     myLib.push(book);
