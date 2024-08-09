@@ -49,10 +49,7 @@ function submit(e){
     e.preventDefault();
 
     libraryDisplay.style.justifyContent='';
-    libraryDisplay.style.alignItems='';
-
-    
-
+    libraryDisplay.style.alignItems='';   
 
     const data = new FormData(e.target);
     const book = new books(
