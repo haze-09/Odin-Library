@@ -62,7 +62,7 @@ legend{
 fieldset>div{
     display: grid;
     grid-template: repeat(5,1fr)/1fr 1fr;
-    row-gap: 50px;
+    /* row-gap: 10px; */
     column-gap: 2px;
     align-items: center;
 }
@@ -85,10 +85,12 @@ input:focus{
 
 #cancel{
     background-color: rgb(251, 95, 95);
+    margin-top: 30px;  
 }
 
 #confirm{
-    background: rgb(142, 236, 142);   
+    background: rgb(142, 236, 142);
+    margin-top: 30px;   
 }
 
 
@@ -146,5 +148,13 @@ input:focus{
     height: 35px;
     font-weight: 500;
     border-radius: 15px;
+}
+
+/* errors */
+.error{
+    grid-column: span 2;
+    margin-bottom: 10px;
+    text-align: end;
+    color: red;
 }
 
